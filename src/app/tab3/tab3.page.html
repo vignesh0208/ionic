@@ -1,9 +1,44 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>
-      Tab Three
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content></ion-content>
+<ion-content>
+    <ion-fab vertical="bottom" horizontal="end" class="padding-value" slot="fixed">
+        <ion-fab-button class="btn-clr">
+            <ion-icon name="call"></ion-icon>
+        </ion-fab-button>
+        <style>
+            .padding-value {
+                margin: 8px;
+            }
+            .btn-clr {
+                --background: #00c43b;
+            }
+        </style>
+    </ion-fab>
+    <ion-item *ngFor ="let val of dataValue">
+        <ion-thumbnail slot="start">
+            <img src="{{val.image}}" alt="{{val.name}}">
+        </ion-thumbnail>
+        <ion-label>
+            <ion-row>
+                <ion-col size="10">
+                    <h3 class="profile-name">{{val.name}}</h3>
+                    <p class="times">{{val.time}}</p>
+                    <style>
+                        .times {
+                            font-weight: 300;
+                        }
+                    </style>
+                </ion-col>
+                <ion-col size="2" class="call-value">
+                    <ion-icon name="call"></ion-icon>
+                    <style>
+                        .call-value {
+                            padding-top: 16px;
+                            padding-left: 24px; 
+                            font-size: 28px;
+                            color: #128C7E;
+                        }
+                    </style>
+                </ion-col>
+            </ion-row>
+        </ion-label>
+    </ion-item>
+</ion-content>

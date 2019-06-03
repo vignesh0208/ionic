@@ -1,0 +1,87 @@
+<ion-header>
+    <ion-row>
+      <ion-col size="1">
+        <ion-back-button class="btn-back-icon"></ion-back-button>
+        <style>
+          ion-back-button {
+            --icon-font-size: 18px;
+            --color: #25D366;
+            --icon-font-weight: 400;
+          }
+        </style>
+      </ion-col>
+      <ion-col>
+        <ion-input [(ngModel)]="searchTerm"
+        (ionChange)="setFilteredItems()" placeholder="Enter Input"></ion-input>
+        <style>
+          ion-input {
+            --padding-top: 16px;
+          }
+          .searchBar {
+            padding:  0px;
+            margin: 0px;
+          }
+        </style>
+      </ion-col>
+      <style>
+        ion-col {
+          padding: 0px;
+        }
+      </style>
+    </ion-row>
+</ion-header>
+
+<ion-content>
+        <div *ngIf="searchTerm != ''">
+            <div class="background-color">Chats</div>
+            <style>
+                .background-color {
+                    background-color: #f7f7f7;
+                    color: #7d7d7d;
+                    margin-right: -28px;
+                    font-size: 16px;
+                    font-weight: 400;
+                    padding: 8px; 
+                }
+            </style>
+        </div>
+        <ion-list>
+          <div *ngFor="let val of dataValue">
+              <ion-item [routerLink]="'/detail/' + val.id" routerDirection="forward">
+                  <ion-thumbnail slot="start">
+                      <img src="{{val.image}}" alt="{{val.name}}">
+                  </ion-thumbnail>
+                  <ion-label>
+                      <h3 class="profile-name">{{val.name}}</h3>
+                      <p>{{val.message}}</p>
+                  </ion-label>
+              </ion-item>
+          </div>
+        </ion-list>
+        <div *ngIf="searchTerm != ''">
+            <div class="background-color">Message</div>
+            <style>
+                .background-color {
+                    background-color: #f7f7f7;
+                    color: #7d7d7d;
+                    margin-right: -28px;
+                    font-size: 16px;
+                    font-weight: 400;
+                    padding: 8px; 
+                }
+            </style>
+            <ion-list>
+                <div *ngFor="let val of dataMsg">
+                    <ion-item [routerLink]="'/detail/' + val.id" routerDirection="forward">
+                        <ion-thumbnail slot="start">
+                            <img src="{{val.image}}" alt="{{val.name}}">
+                        </ion-thumbnail>
+                        <ion-label>
+                            <h3 class="profile-name">{{val.name}}</h3>
+                            <p>{{val.message}}</p>
+                        </ion-label>
+                    </ion-item>
+                </div>          
+            </ion-list>
+        </div>
+</ion-content>

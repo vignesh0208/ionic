@@ -1,41 +1,40 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>
-      Tab One
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
-    <ion-card class="welcome-card">
-      <ion-img src="/assets/shapes.svg"></ion-img>
-      <ion-card-header>
-        <ion-card-subtitle>Get Started</ion-card-subtitle>
-        <ion-card-title>Welcome to Ionic</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        <p>Now that your app has been created, you'll want to start building out features and components. Check out some of the resources below for next steps.</p>
-      </ion-card-content>
-    </ion-card>
-    <ion-list lines="none">
-      <ion-list-header>
-        <ion-label>Resources</ion-label>
-      </ion-list-header>
-      <ion-item href="https://ionicframework.com/docs/">
-        <ion-icon slot="start" color="medium" name="book"></ion-icon>
-        <ion-label>Ionic Documentation</ion-label>
-      </ion-item>
-      <ion-item href="https://ionicframework.com/docs/building/scaffolding">
-        <ion-icon slot="start" color="medium" name="build"></ion-icon>
-        <ion-label>Scaffold Out Your App</ion-label>
-      </ion-item>
-      <ion-item href="https://ionicframework.com/docs/layout/structure">
-        <ion-icon slot="start" color="medium" name="grid"></ion-icon>
-        <ion-label>Change Your App Layout</ion-label>
-      </ion-item>
-      <ion-item href="https://ionicframework.com/docs/theming/basics">
-        <ion-icon slot="start" color="medium" name="color-fill"></ion-icon>
-        <ion-label>Theme Your App</ion-label>
-      </ion-item>
-    </ion-list>
+    <ion-fab vertical="bottom" horizontal="end"  class="padding-value" slot="fixed">
+        <ion-fab-button class="btn-clr" [routerLink]="'/contact/'" routerDirection="forward">
+            <ion-icon name="add"></ion-icon>
+        </ion-fab-button>
+        <style>
+            .padding-value {
+                margin: 8px;
+            }
+            .btn-clr {
+                --background: #00c43b;
+            }
+        </style>
+    </ion-fab>
+    <div *ngIf="!dataValue">
+        <ion-list>
+            <ion-item>
+                <ion-thumbnail slot="start">
+                    <ion-skeleton-text animated></ion-skeleton-text>
+                </ion-thumbnail>
+                <ion-label><h3 class="profile-name"><ion-skeleton-text animated style="width: 50%"></ion-skeleton-text></h3><p><ion-skeleton-text animated style="width: 80%"></ion-skeleton-text></p></ion-label>
+            </ion-item>
+        </ion-list>
+    </div>
+    <div *ngIf="dataValue">
+        <ion-list>
+            <div *ngFor="let val of dataValue">
+                <ion-item [routerLink]="'/detail/' + val.id" (click)="getIdnumValue(val.id)" routerDirection="forward">
+                    <ion-thumbnail slot="start">
+                        <img src="{{val.image}}" alt="{{val.name}}">
+                    </ion-thumbnail>
+                    <ion-label>
+                        <h3 class="profile-name">{{val.name}}</h3>
+                        <p>{{val.message}}</p>
+                    </ion-label>
+                </ion-item>
+            </div>
+        </ion-list>
+    </div>
 </ion-content>

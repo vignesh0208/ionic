@@ -1,4 +1,22 @@
-.welcome-card ion-img {
-  max-height: 35vh;
-  overflow: hidden;
+ion-thumbnail {
+  --border-radius: 50%;
+}
+
+ion-content {
+  --padding-end: 16px;
+}
+
+.profile-name {
+  margin-top: 2px;
+  margin-bottom: 2px;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.custom-skeleton ion-skeleton-text {
+  line-height: 13px;
+}
+
+.custom-skeleton ion-skeleton-text:last-child {
+  margin-bottom: 5px;
 }

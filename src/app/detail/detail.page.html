@@ -1,0 +1,136 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-row>
+            <ion-col style="margin-top: 8px;" size="1">
+                <ion-back-button></ion-back-button>
+                <style>
+                    ion-back-button {
+                        --padding-top: 20px;
+                        --padding-bottom: 20px;
+                        --icon-font-size: 24px;
+                        --color: #ffffff;
+                        --icon-font-weight: 400;
+                    }
+                </style>
+            </ion-col>
+            <ion-col size="2">
+                <ion-avatar>
+                    <img src="{{dataValue.image}}">
+                </ion-avatar>
+                <style>
+                    ion-avatar {
+                        padding: 12px;
+                    }
+                </style>
+            </ion-col>
+            <ion-col size="5">
+                <h5 class="font-clr">{{dataValue.name}}</h5>
+                <style>
+                    .font-clr {
+                        margin-top: 20px;
+                        font-weight: 400;
+                        color: #ffffff;
+                    }
+                </style>
+            </ion-col>
+            <ion-col size="4">
+                <ion-icon name="videocam"></ion-icon>
+                <ion-icon name="call"></ion-icon>
+                <ion-icon name="more"></ion-icon>
+                <style>
+                    ion-icon {
+                        padding: 20px 8px 8px;
+                        font-size: 24px;
+                        color: #ffffff;
+                        font-weight: 400;
+                    }
+                </style>
+            </ion-col>
+        </ion-row>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <div class="msg">
+        <div class="bubble altfollow"  v-for="ta in task">
+            <div class="txt">
+                <span class="timestamp">9:30 pm</span>
+                <p class="message follow">Hello</p>
+            </div>
+            <div class="bubble-arrow alt"></div>
+        </div>
+    </div>
+    <div class="msg">
+        <div class="bubble" v-for="v in val">
+            <div class="txt">
+                <span class="name">Bot<span> ~ bot</span></span>
+                <span class="timestamp">9:45 pm</span>
+                <p class="message">Hi</p>
+            </div>
+            <div class="bubble-arrow"></div>
+        </div>
+    </div>
+    <style>
+    ion-content {
+        --padding-top: 16px
+    }
+    </style>
+</ion-content>
+
+<ion-tabs>
+    <ion-row>
+        <ion-col size="10">
+            <ion-icon class="happy-val" name="happy"></ion-icon>
+            <style>
+                .happy-val {
+                    margin-top: 8px;
+                    padding: 7px 7px 8px 7px;
+                    color: #ababab;
+                    position: absolute;
+                }
+            </style>
+            <ion-icon class="attach-btn" name="attach"></ion-icon>
+            <style>
+                .attach-btn {
+                    margin-top: 8px;
+                    padding: 7px 7px 8px 7px;
+                    color: #ababab;
+                    position: absolute;
+                    right: 40px;
+                }
+            </style>
+            <ion-icon class="camera-btn" name="camera"></ion-icon>
+            <style>
+                .camera-btn {
+                    margin-top: 8px;
+                    padding: 7px 8px 8px 7px;
+                    color: #ababab;
+                    position: absolute;
+                    right: 10px;
+                }
+            </style>
+            <ion-textarea class="textArea" cols="1" rows="1" wrap="soft" spellcheck autoGrow placeholder="Enter Input"></ion-textarea>
+            <style>
+                .textArea {
+                    padding: 0px 64px 0px 24px;
+                    border: 1px solid #ababab;
+                    border-radius: 24px;
+                }
+            </style>
+        </ion-col>
+        <ion-col size="2">
+            <ion-button class="btn-color" (click)="onSelect()"><ion-icon name="mic"></ion-icon></ion-button>
+            <style>
+                .btn-color {
+                    --background: #128C7E;
+                    --border-radius: 50%;
+                    --padding-end: 0px;
+                    --padding-start: 0px;
+                    --padding-top: 0px;
+                    --padding-bottom: 8px;
+                    margin-top: 8px;
+                }
+            </style>
+        </ion-col>
+    </ion-row>
+</ion-tabs>

@@ -1,1 +1,14 @@
-
+ion-thumbnail {
+    --border-radius: 50%;
+  }
+  
+  ion-content {
+    --padding-end: 16px;
+  }
+  
+  .profile-name {
+    margin-top: 2px;
+    margin-bottom: 2px;
+    font-size: 18px;
+    font-weight: 400;
+  }

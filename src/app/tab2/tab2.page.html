@@ -1,9 +1,55 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>
-      Tab Two
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content></ion-content>
+<ion-content>
+    <ion-fab vertical="bottom" horizontal="end" class="padding-value" slot="fixed">
+        <ion-fab-button class="btn-clr-edit">
+                <ion-icon name="create"></ion-icon>
+        </ion-fab-button>
+        <ion-fab-button class="btn-clr">
+            <ion-icon name="image"></ion-icon>
+        </ion-fab-button>
+        <style>
+            .padding-value {
+                margin: 8px;
+            }
+            .btn-clr {
+                --background: #00c43b;
+            }
+            .btn-clr-edit {
+                padding: 4px;
+                margin-bottom: 8px;
+                --color: #7d7d7d;
+                --background: #efefef;
+            }
+        </style>
+    </ion-fab>
+    <ion-item lines="none">
+        <ion-thumbnail slot="start">
+            <img src="https://semantic-ui.com/images/avatar2/large/matthew.png" alt="vignesh">
+        </ion-thumbnail>
+        <ion-label><h3 class="profile-name">My status</h3><p>Tab to add status update</p></ion-label>
+    </ion-item>
+    <div class="background-color">Recent updates</div>
+    <style>
+        .background-color {
+            background-color: #f7f7f7;
+            color: #7d7d7d;
+            margin-right: -28px;
+            font-size: 16px;
+            font-weight: 400;
+            padding: 8px; 
+        }
+    </style>
+    <div *ngFor ="let val of dataValue">
+        <ion-item [routerLink]="'/status/' + val.id" (click)="getIdnumValue(val.id)" routerDirection="forward">
+            <ion-thumbnail slot="start">
+                <img src="{{val.image}}" class="outLine" alt="{{val.name}}">
+                <style>
+                    .outLine{
+                        border: 2px solid #00c43b;
+                        padding: 2px;
+                    }
+                </style>
+            </ion-thumbnail>
+            <ion-label><h3 class="profile-name">{{val.name}}</h3><p>{{val.time}}</p></ion-label>
+        </ion-item>
+    </div>
+</ion-content>

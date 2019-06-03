@@ -1,0 +1,15 @@
+<ion-content padding>
+  <!-- <p *ngFor="let ng of dataService.dataValue">{{ ng.name }}</p> -->
+  <ion-input type="text" placeholder="Name" [(ngModel)]="name"></ion-input>
+</ion-content>
+
+<ion-tabs>
+  <ion-tab-bar class="ion-tabs-bar" slot="top">
+    <ion-tab-button [routerLink]="'/contact/'">
+      <ion-label>CANCEL</ion-label>
+    </ion-tab-button>
+    <ion-tab-button>
+      <ion-label>SAVE</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>

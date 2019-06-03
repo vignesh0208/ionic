@@ -1,0 +1,82 @@
+<ion-content>
+    <div class="progress-outer">
+      <div class="progress-inner" [style.width]="width + '%'"></div>
+    </div>
+    <style>
+      .progress-outer {
+          width: 100%;
+          text-align: center;
+          color: #fff;
+          padding: 8px;
+          border-radius: 20px;
+      }
+  
+      .progress-inner {
+          min-width: 15%;
+          white-space: nowrap;
+          overflow: hidden;
+          padding: 2px;
+          border-radius: 20px;
+          background-color: #00c43b;
+      }
+    </style>
+    <ion-row>
+        <ion-col size="1">
+            <ion-icon (click)="goBack()" name="arrow-round-back"></ion-icon>
+            <style>
+                ion-back-button {
+                    --padding-top: 20px;
+                    --padding-bottom: 20px;
+                    --icon-font-size: 24px;
+                    --color: #ffffff;
+                    --icon-font-weight: 400;
+                }
+            </style>
+        </ion-col>
+        <ion-col size="2">
+            <ion-avatar>
+                <img src="{{dataValue.image}}" alt="{{dataValue.name}}">
+            </ion-avatar>
+            <style>
+                ion-avatar {
+                    padding: 12px;
+                }
+            </style>
+        </ion-col>
+        <ion-col size="7">
+            <h5 class="font-clr">{{dataValue.name}}</h5>
+            <p class="font-clr-p">{{dataValue.time}}</p>
+            <style>
+                .font-clr {
+                    font-weight: 400;
+                    color: #ffffff;
+                    margin: 16px 0 0 0;
+                    font-size: 16px;
+                }
+                .font-clr-p {
+                    font-weight: 300;
+                    color: #ffffff;
+                    margin: 2px 0 0 0;
+                    font-size: 10px;
+                }
+            </style>
+        </ion-col>
+        <ion-col size="2">
+            <ion-icon name="more"></ion-icon>
+            <style>
+                ion-icon {
+                    padding: 20px 8px 8px;
+                    font-size: 24px;
+                    color: #ffffff;
+                    font-weight: 400;
+                }
+            </style>
+        </ion-col>
+    </ion-row>
+    <style>
+      ion-content {
+        --background: #252525;
+      }
+    </style>
+    <img src="{{dataValue.image}}" alt="{{dataValue.name}}">
+</ion-content>

@@ -1,6 +1,8 @@
 {
   "name": "myTabs",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular",
-  "id": "e3b48c7f"
+  "id": "12499eb4"
 }

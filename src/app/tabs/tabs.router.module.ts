@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { TabsPage } from './tabs.page';
 
 const routes: Routes = [
+  { path: 'detail/:id', loadChildren: '../detail/detail.module#DetailPageModule'},
   {
     path: 'tabs',
     component: TabsPage,

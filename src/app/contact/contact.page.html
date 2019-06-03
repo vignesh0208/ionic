@@ -1,0 +1,102 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-row>
+      <ion-col style="margin-top: 8px; padding-left: 0px;" size="2">
+        <ion-back-button></ion-back-button>
+        <style>
+          ion-back-button {
+            --padding-top: 20px;
+            --padding-bottom: 20px;
+            --icon-font-size: 24px;
+            --color: #ffffff;
+            --icon-font-weight: 400;
+          }
+        </style>
+      </ion-col>
+      <ion-col size="7">
+        <h5 class="font-clr">Select contant</h5>
+        <p class="font-clr-p">{{ dataService.dataValue?.length }} contacts</p>
+        <style>
+          .font-clr {
+            margin-top: 8px;
+            margin-bottom: 0px;
+            font-weight: 400;
+            color: #ffffff;
+          }
+
+          .font-clr-p {
+            font-size: 14px;
+            margin-top: 4px;
+            font-weight: 400;
+            color: #ffffff;
+          }
+        </style>
+      </ion-col>
+      <ion-col size="3">
+        <ion-icon [routerLink]="'/contact-search/'" routerDirection="forward" name="search"></ion-icon>
+        <ion-icon name="more"></ion-icon>
+        <style>
+          ion-icon {
+            padding: 16px 8px 8px 4px;
+            font-size: 24px;
+            color: #ffffff;
+            font-weight: 400;
+          }
+        </style>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-row >
+    <ion-col size="2" style="padding: 8px;">
+      <div class="icon-value">
+        <ion-icon style="padding: 14px 0px 14px 8px;" name="people"></ion-icon>
+      </div>
+    </ion-col>
+    <ion-col size="10" style="margin-top: 14px;">
+      <ion-label>New group</ion-label>
+    </ion-col>
+  </ion-row>
+  <ion-row [routerLink]="'/add-contact/'" routerDirection="forward">
+    <ion-col size="2" style="padding: 8px;">
+      <div class="icon-value">
+        <ion-icon style="padding: 14px 0px 14px 8px;" name="person-add"></ion-icon>
+      </div>
+    </ion-col>
+    <ion-col size="10" style="margin-top: 14px;">
+      <ion-label>New contact</ion-label>
+    </ion-col>
+  </ion-row>
+  <div *ngFor="let ng of dataService.dataValue">
+    <ion-row [routerLink]="'/detail/' + ng.id" (click)="getIdnumValue(ng.id)" routerDirection="forward">
+      <ion-col size="2" style="padding: 8px;">
+        <img src="{{ng.image}}">
+      </ion-col>
+      <ion-col size="10" style="margin-top: 14px;">
+        <ion-label>{{ng.name}}</ion-label>
+      </ion-col>
+    </ion-row>
+  </div>
+  <style>
+    ion-label {
+      font-size: 20px;
+      font-weight: 400;
+    }
+
+    .contact-name {
+      padding-top: 16px;
+    }
+
+    img {
+      border-radius: 50%;
+    }
+
+    .icon-value {
+      border-radius: 50%;
+      background: #00c43b;
+      padding-left: 8px;
+    }
+  </style>
+</ion-content>
