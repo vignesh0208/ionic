@@ -72,9 +72,16 @@
     </div>
     <style>
     ion-content {
-        --padding-top: 16px
+        --padding-top: 16px;
+        --background: url(../../assets/img/download.jpeg) 0 0/100% 100% no-repeat;
     }
     </style>
+    <!-- <ion-fab vertical="bottom" horizontal="center" slot="fixed">
+        <ion-fab-button (click)="takePicture()">
+           <ion-icon name="camera"></ion-icon>
+        </ion-fab-button>
+     </ion-fab>
+     <img [src]="currentImage" *ngIf="currentImage"> -->
 </ion-content>
 
 <ion-tabs>
@@ -99,7 +106,7 @@
                     right: 40px;
                 }
             </style>
-            <ion-icon class="camera-btn" name="camera"></ion-icon>
+            <ion-icon (click)="takePicture()" class="camera-btn" name="camera"></ion-icon>
             <style>
                 .camera-btn {
                     margin-top: 8px;
@@ -115,11 +122,12 @@
                     padding: 0px 64px 0px 24px;
                     border: 1px solid #ababab;
                     border-radius: 24px;
+                    --background: rgba(255, 255, 255, 0.42);;
                 }
             </style>
         </ion-col>
         <ion-col size="2">
-            <ion-button class="btn-color" (click)="onSelect()"><ion-icon name="mic"></ion-icon></ion-button>
+            <ion-button class="btn-color"><ion-icon name="mic"></ion-icon></ion-button>
             <style>
                 .btn-color {
                     --background: #128C7E;

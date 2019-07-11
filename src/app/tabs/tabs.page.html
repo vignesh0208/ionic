@@ -8,7 +8,7 @@
           <ion-col size="1" [routerLink]="'/search/'" routerDirection="forward">
               <ion-icon name="search"></ion-icon>
           </ion-col>
-          <ion-col size="1"><ion-icon name="more"></ion-icon></ion-col>
+          <ion-col size="1" (click)="presentPopover()"><ion-icon name="more"></ion-icon></ion-col>
         </ion-row>
       </ion-title>
     </ion-toolbar>

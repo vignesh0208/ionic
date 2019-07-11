@@ -8,7 +8,8 @@ const routes: Routes = [
   { path: 'status/:id', loadChildren: './status/status.module#StatusPageModule' },
   { path: 'contact', loadChildren: './contact/contact.module#ContactPageModule' },
   { path: 'contact-search', loadChildren: './contact-search/contact-search.module#ContactSearchPageModule' },
-  { path: 'add-contact', loadChildren: './add-contact/add-contact.module#AddContactPageModule' }
+  { path: 'add-contact', loadChildren: './add-contact/add-contact.module#AddContactPageModule' },
+  { path: 'setting', loadChildren: './setting/setting.module#SettingPageModule' }
   
 ];
 @NgModule({

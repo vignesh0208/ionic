@@ -25,7 +25,7 @@
     <div *ngIf="dataValue">
         <ion-list>
             <div *ngFor="let val of dataValue">
-                <ion-item [routerLink]="'/detail/' + val.id" (click)="getIdnumValue(val.id)" routerDirection="forward">
+                <ion-item [routerLink]="'/detail/' + val.id" routerDirection="forward">
                     <ion-thumbnail slot="start">
                         <img src="{{val.image}}" alt="{{val.name}}">
                     </ion-thumbnail>
